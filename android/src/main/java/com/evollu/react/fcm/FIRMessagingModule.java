@@ -27,8 +27,8 @@ import com.google.firebase.messaging.RemoteMessage.Notification;
 import android.app.Application;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.util.Log;
 
 import android.content.Context;
@@ -135,8 +135,10 @@ public class FIRMessagingModule extends ReactContextBaseJavaModule implements Li
     @ReactMethod
     public void getFCMToken(Promise promise) {
         try {
-            Log.d(TAG, "Firebase token: " + FirebaseInstanceId.getInstance().getToken());
-            promise.resolve(FirebaseInstanceId.getInstance().getToken());
+          String senderId = FirebaseApp.getInstance().getOptions().getGcmSenderId();
+          promise.resolve(FirebaseInstanceId.getInstance().getToken());	            String token = FirebaseInstanceId.getInstance().getToken(senderId, "FCM");
+          Log.d(TAG, "Firebase token: " + token);
+          promise.resolve(token);
         } catch (Throwable e) {
             e.printStackTrace();
             promise.reject(null,e.getMessage());
