@@ -1,3 +1,9 @@
+## Qdev - Fork info
+
+This fork fixes issues with android 10 notifications. The owner of this repo recommends using react-native-firebase, but at the time I tried to use that, it had similar issues on android 10 devices.
+
+This fork won't be necessarily be updated, as we are using it for couple of legacy products only.
+
 [![Join the chat at https://gitter.im/evollu/react-native-fcm](https://badges.gitter.im/evollu/react-native-fcm.svg)](https://gitter.im/evollu/react-native-fcm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Deprecated
